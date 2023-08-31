@@ -2,14 +2,11 @@ import Product from "../Product/Product";
 import useSWR, { SWRResponse } from "swr";
 import Loader from "../Loader/Loader";
 import { ProductStructure } from "../../types";
+import useCart from "../../hooks/useCart/useCart";
 
-interface ProductsProps {
-  cart: ProductStructure[];
-  onProductAdd: (product: ProductStructure) => void;
-  onProductDelete: (id: number) => void;
-}
+const Products = () => {
+  const { cart, onProductAdd, onProductDelete } = useCart();
 
-const Products = (props: ProductsProps) => {
   const {
     data: products = [],
     isValidating: loading,
@@ -34,9 +31,9 @@ const Products = (props: ProductsProps) => {
             <Product
               key={product.id}
               details={product}
-              cart={props.cart}
-              onProductAdd={props.onProductAdd}
-              onProductDelete={props.onProductDelete}
+              cart={cart}
+              onProductAdd={onProductAdd}
+              onProductDelete={onProductDelete}
             />
           );
         })}

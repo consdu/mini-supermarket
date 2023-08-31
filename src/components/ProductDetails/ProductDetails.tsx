@@ -4,12 +4,10 @@ import ProductDetailInfo from "../ProductDetailInfo/ProductDetailInfo";
 import ProductDetailNutrition from "../ProductDetailNutrition/ProductDetailNutrition";
 import ProductDetailStorage from "../ProductDetailStorage/ProductDetailStorage";
 import { ProductStructure } from "../../types";
+import useCart from "../../hooks/useCart/useCart";
 
-interface ProductDetailsProps {
-  onProductAdd: (product: ProductStructure) => void;
-}
-
-const ProductDetails = (props: ProductDetailsProps): React.ReactElement => {
+const ProductDetails = (): React.ReactElement => {
+  const { onProductAdd } = useCart();
   const params = useParams();
   const { pathname } = useLocation();
 
@@ -86,7 +84,7 @@ const ProductDetails = (props: ProductDetailsProps): React.ReactElement => {
             path="/"
             element={
               <ProductDetailInfo
-                onProductAdd={props.onProductAdd}
+                onProductAdd={onProductAdd}
                 product={product}
               />
             }

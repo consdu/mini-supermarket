@@ -1,9 +1,23 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import CartContext from "./CartContext";
 import { CartProductStructure, ProductStructure } from "../../types";
 
 const CartProvider = ({ children }: PropsWithChildren): React.ReactElement => {
-  const [cart, setCart] = useState<CartProductStructure[]>([]);
+  const [cart, setCart] = useState<CartProductStructure[]>(() => {
+    let savedCart: CartProductStructure[] = [];
+    try {
+      savedCart = JSON.parse(localStorage.getItem("cart") as string) || [];
+    } catch (error) {
+      savedCart = [];
+    }
+    return savedCart;
+  });
+
+  useEffect(() => {
+    if (cart) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
 
   function onProductAdd(newProduct: ProductStructure) {
     const existingProduct = cart.find(

@@ -2,15 +2,12 @@ import React, { ChangeEvent, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
-import { ProductStructure } from "../../types";
+import useCart from "../../hooks/useCart/useCart";
 
 const stripeLoadedPromise = loadStripe(import.meta.env.VITE_STRIPE_KEY!);
 
-interface CartProps {
-  cart: ProductStructure[];
-}
-
-const Cart = ({ cart }: CartProps): React.ReactElement => {
+const Cart = (): React.ReactElement => {
+  const { cart } = useCart();
   const [email, setEmail] = useState<string>("");
 
   const totalPrice = cart.reduce(
