@@ -1,6 +1,6 @@
-import Product from "../Product/Product";
+import Product from "../../components/Product/Product";
 import useSWR, { SWRResponse } from "swr";
-import Loader from "../Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import { ProductStructure } from "../../types";
 import useCart from "../../hooks/useCart/useCart";
 

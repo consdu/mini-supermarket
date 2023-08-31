@@ -3,8 +3,8 @@ import useSWR, { SWRResponse } from "swr";
 import ProductDetailInfo from "../ProductDetailInfo/ProductDetailInfo";
 import ProductDetailNutrition from "../ProductDetailNutrition/ProductDetailNutrition";
 import ProductDetailStorage from "../ProductDetailStorage/ProductDetailStorage";
-import { ProductStructure } from "../../types";
-import useCart from "../../hooks/useCart/useCart";
+import { ProductStructure } from "../../../types";
+import useCart from "../../../hooks/useCart/useCart";
 
 const ProductDetails = (): React.ReactElement => {
   const { onProductAdd } = useCart();
@@ -12,23 +12,7 @@ const ProductDetails = (): React.ReactElement => {
   const { pathname } = useLocation();
 
   const {
-    data: product = {
-      name: "",
-      image: "",
-      description: "",
-      price: 0,
-      id: 0,
-      price_id: "",
-      quantity: 0,
-      nutrition: {
-        calories: 0,
-        carbs: 0,
-        fat: 0,
-        protein: 0,
-        salt: 0,
-      },
-      storage: "",
-    },
+    data: product = {} as ProductStructure,
     error,
   }: SWRResponse<ProductStructure, Error, any> = useSWR(
     `https://react-tutorial-demo.firebaseio.com/productinfo/id${params.id}.json`
