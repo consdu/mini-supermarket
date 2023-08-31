@@ -3,8 +3,8 @@ import useSWR, { SWRResponse } from "swr";
 import ProductDetailInfo from "../ProductDetailInfo/ProductDetailInfo";
 import ProductDetailNutrition from "../ProductDetailNutrition/ProductDetailNutrition";
 import ProductDetailStorage from "../ProductDetailStorage/ProductDetailStorage";
-import { ProductStructure } from "../../types";
-import useCart from "../../hooks/useCart/useCart";
+import { ProductStructure } from "../../../types";
+import useCart from "../../../hooks/useCart/useCart";
 
 const ProductDetails = (): React.ReactElement => {
   const { onProductAdd } = useCart();

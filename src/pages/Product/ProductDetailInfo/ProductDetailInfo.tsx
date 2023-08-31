@@ -1,5 +1,5 @@
-import { ProductStructure } from "../../types";
-import Button from "../Button/Button";
+import { ProductStructure } from "../../../types";
+import Button from "../../../components/Button/Button";
 
 interface ProductDetailInfoProps {
   product: ProductStructure;
