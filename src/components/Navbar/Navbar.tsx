@@ -1,12 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { ProductStructure } from "../../types";
+import useCart from "../../hooks/useCart/useCart";
 
-interface NavbarProps {
-  cart: ProductStructure[];
-}
-
-const Navbar = (props: NavbarProps): React.ReactElement => {
-  const cartCount = props.cart.reduce(
+const Navbar = (): React.ReactElement => {
+  const { cart } = useCart();
+  const cartCount = cart.reduce(
     (total, product) => total + product.quantity,
     0
   );
