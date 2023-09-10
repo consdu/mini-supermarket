@@ -19,6 +19,9 @@
   --accent-base: #de7699;
   --accent-light: #e6c3ce;
   --accent-lightest: #fff2f7;
+
+  --surface-color: white;
+  --surface-shadow: #c4c4c4;
 }
 
 body {
@@ -128,7 +131,7 @@ a:hover {
   color: var(--primary-darkest);
   background-color: var(--primary-light);
   border: var(--primary-darkest) 2px solid;
-  box-shadow: 1px 1px 7px #c4c4c4;
+  box-shadow: 1px 1px 7px var(--surface-shadow);
   padding: 8px 25px;
   border-radius: 10px;
 }
@@ -170,7 +173,7 @@ a:hover {
   border: none;
   border-left: 7px solid var(--neutral-light);
   transition: border-left-color 160ms;
-  background-color: white;
+  background-color: var(--surface-color);
 }
 
 ::placeholder {
@@ -183,7 +186,7 @@ input:focus {
 }
 
 .navbar {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 10px;
   box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
     0px -3px 7px 1px rgba(0, 0, 0, 0.07);
@@ -197,7 +200,7 @@ input:focus {
   font-weight: 450;
   text-decoration: none;
   padding-left: 20px;
-  color: initial;
+  color: inherit;
 }
 
 .nav-brand:hover {
@@ -305,7 +308,7 @@ input:focus {
 }
 
 .product {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 15px 20px;
   border-radius: 25px;
   display: grid;
@@ -323,7 +326,7 @@ input:focus {
 }
 
 .product-delete {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 5px 10px;
   color: var(--accent-darkest);
   border-color: var(--accent-dark);
@@ -338,7 +341,7 @@ input:focus {
   position: absolute;
   top: 8px;
   right: -15px;
-  background-color: white;
+  background-color: var(--surface-color);
   border-radius: 50%;
   padding: 5px;
 }
@@ -373,7 +376,7 @@ input:focus {
 }
 
 .product-details-image {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 10px;
   border-radius: 20px;
 }
@@ -386,7 +389,7 @@ input:focus {
 .table thead {
   background-color: var(--primary-darkest);
   color: white;
-  border: 1px solid white;
+  border: 1px solid var(--surface-color);
   border-top: 0;
 }
 .table.table-cart thead {
@@ -401,7 +404,7 @@ input:focus {
 
 .table tbody {
   font-size: 18px;
-  border: 1px solid white;
+  border: 1px solid var(--surface-color);
 }
 
 .table-cart {
@@ -419,7 +422,7 @@ input:focus {
 }
 
 .table tbody tr:nth-child(2n) {
-  background-color: white;
+  background-color: var(--surface-color);
 }
 
 .table tbody tr:nth-child(2n + 1) {
@@ -500,4 +503,16 @@ input:focus {
     stroke-dashoffset: 187;
     transform: rotate(450deg);
   }
+}
+
+.theme-switcher {
+  min-width: auto;
+  padding: 5px;
+}
+
+body.dark {
+  color: white;
+  --neutral-lightest: #222;
+  --surface-color: #444;
+  --surface-shadow: #222;
 }
